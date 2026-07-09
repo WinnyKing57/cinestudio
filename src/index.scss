@@ -1,0 +1,272 @@
+/* ==========================================
+   STYLE GLOBAL & IMAGE DE FOND
+   ========================================== */
+body {
+    margin: 0 auto;
+    max-width: 1200px;
+
+    background-image:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 40%, rgba(0, 0, 0, 0.85) 100%),
+        url('/images/body.png');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* ==========================================
+   CONTENEUR PRINCIPAL (DEFILANT)
+   ========================================== */
+#root {
+    padding: 120px 20px 80px 20px;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+#root section,
+#root .content-block {
+    background: rgba(15, 23, 30, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 25px;
+    backdrop-filter: blur(10px);
+}
+
+/* ==========================================
+   GRILLE ET AFFICHAGE DES FILMS (PAGE ACCUEIL)
+   ========================================== */
+.movies-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align: center;
+    justify-items: center;
+}
+
+.movie-container {
+    width: 100%;
+    max-width: 220px;
+    transition: transform 0.25s ease;
+
+    &:hover {
+        transform: translateY(-6px);
+    }
+}
+
+/* Poster sur la page d'accueil (dans .movie-container > a > img)
+   ET poster sur la page détail (dans .detail-img-container > img directement) */
+.movie-container > a > img,
+.detail-img-container > img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    display: block;
+}
+
+/* ==========================================
+   PAGE DETAILS DES FILMS
+   ========================================== */
+.movie-container-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.detail-img-container {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.detail-container {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    min-width: 260px;
+}
+
+/* Le backdrop est DANS .detail-container, donc pas touché par la règle
+   .detail-img-container>img ci-dessus : il garde sa propre taille ici */
+.backdrop_url {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 6px;
+}
+
+/* ==========================================
+   STYLE DU FOOTER (FIXÉ EN BAS DE L'ÉCRAN)
+   ========================================== */
+.site-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.footer-info p span {
+    color: #e50914;
+    font-weight: bold;
+}
+
+.footer-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-nav a {
+    color: #b3b3b3;
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: #ffffff;
+    }
+}
+
+/* ==========================================
+   MESSAGE D'ERREUR
+   ========================================== */
+.erreur {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: red;
+    background-color: black;
+    font-size: x-large;
+    padding: 20px;
+    border: 2px solid white;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.erreur > .btn {
+    background-color: #b3b3b3;
+    color: white;
+    font-size: large;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #e50914;
+    }
+}
+/* ==========================================
+   BOUTON RETOUR GENERIQUE (.btn)
+   ========================================== */
+.btn {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+    text-align: center;
+    align-self: center; /* Permet de le centrer si son parent est en flex colonne */
+    margin-top: 15px;
+
+    &:hover {
+        background-color: #e50914; /* Le rouge CinéStudio présent dans ton footer */
+        border-color: #e50914;
+        color: #ffffff;
+    }
+
+    &:active {
+        transform: scale(0.50); /* Petit effet d'enfoncement au clic */
+    }
+}
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+@media (max-width: 900px) {
+    .movies-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        background-size: cover;
+        background-attachment: scroll;
+    }
+
+    #root {
+        padding: 100px 12px 20px 12px;
+    }
+
+    .movies-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .detail-img-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .movie-container > a > img,
+    .detail-img-container > img {
+        max-width: 220px;
+    }
+
+    .detail-container {
+        padding: 20px 10px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .site-footer {
+        position: static;
+    }
+}
+
+@media (max-width: 400px) {
+    .movies-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+}
