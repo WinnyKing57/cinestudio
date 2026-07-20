@@ -212,8 +212,61 @@ a {
     }
 
     &:active {
-        transform: scale(0.50); /* Petit effet d'enfoncement au clic */
+        transform: scale(0.95);
     }
+}
+
+/* ==========================================
+   SKELETON LOADERS
+   ========================================== */
+@keyframes shimmer {
+    0% { background-position: -400px 0; }
+    100% { background-position: 400px 0; }
+}
+
+.skeleton-card {
+    width: 100%;
+    max-width: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.skeleton-img {
+    width: 100%;
+    aspect-ratio: 2/3;
+    border-radius: 6px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.06) 25%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.06) 75%);
+    background-size: 800px 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+}
+
+.skeleton-text {
+    height: 16px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.06) 25%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.06) 75%);
+    background-size: 800px 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+
+    &.short {
+        width: 60%;
+    }
+}
+
+.skeleton-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.skeleton-detail .skeleton-img {
+    max-width: 300px;
+}
+
+.skeleton-detail .skeleton-text {
+    width: 80%;
 }
 /* ==========================================
    RESPONSIVE
