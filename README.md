@@ -11,24 +11,32 @@ Application React de découverte de films avec une interface inspirée de Netfli
 
 ## Démarrage rapide
 
-### 1. Lancer le serveur
+### 1. Installer les dépendances
+
+```bash
+# Dépendances du client (à la racine)
+npm install
+
+# Dépendances du serveur
+cd server && npm install && cd ..
+```
+
+### 2. Lancer le serveur
 
 ```bash
 cd server
-npm install
 npm run start
 ```
 
-Le serveur démarre sur `http://localhost:3000`.
+Le serveur Express démarre sur `http://localhost:3000` et sert les films (JSON local ou TMDB).
 
-### 2. Lancer le client
+### 3. Lancer le client (dans un autre terminal)
 
 ```bash
-npm install
 npm run dev
 ```
 
-Le client démarre sur `http://localhost:5173`.
+Le client Vite démarre sur `http://localhost:5173`.
 
 ## API TMDB (optionnel)
 
