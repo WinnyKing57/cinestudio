@@ -1,7 +1,7 @@
 {
-  "name": "netflix-react-router-server",
+  "name": "cinestudio-server",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "start": "node ./bin/www"
@@ -12,5 +12,11 @@
     "dotenv": "^16.4.7",
     "express": "^5.2.1",
     "http-errors": "^2.0.1"
+  },
+  "description": "API Express de CinéStudio — catalogue JSON local ou TMDB.",
+  "author": "Edwin Duriez (WinnyKing)",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
   }
 }
